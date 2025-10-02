@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Ad Receipt</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="center">
+    <div class="receipt" id="receipt">
+      <h1>IG Ad Receipt</h1>
+      <div class="muted" id="metaLine">Session: <span id="sessionMeta"></span></div>
+
+      <div id="lines" style="margin-top:12px;"></div>
+
+      <div class="line total" style="margin-top:10px;">
+        <div>Total</div>
+        <div id="grandTotal">$0.00</div>
+      </div>
+
+      <div class="actions">
+        <button onclick="window.print()">Print / Save PDF</button>
+        <a class="btn" href="index.html">Start Over</a>
+      </div>
+    </div>
+  </div>
+  <script src="receipt.js"></script>
+</body>
+</html>

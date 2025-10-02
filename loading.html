@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Processing Your Receipt…</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .printer{
+      width: 320px; height: 220px; border:2px solid #000; border-radius:16px;
+      display:grid; place-items:center; position:relative; background:#fff;
+      box-shadow: 6px 8px 0 #000;
+    }
+    .slot{
+      width: 80%; height: 8px; background:#111; border-radius:4px; margin-top:16px;
+    }
+    .paper{
+      position:absolute; top: 60px; width:72%; height:0;
+      background: repeating-linear-gradient(#fff, #fff 20px, #f3f3f3 21px);
+      border:1px solid #000; animation: print 3.2s ease-out forwards 0.6s;
+    }
+    @keyframes print {
+      from { height: 0; }
+      to   { height: 180px; }
+    }
+    .loading-dots::after{
+      content: '...';
+      animation: dots 1.2s steps(3,end) infinite;
+    }
+    @keyframes dots {
+      0%{ content: ''; }
+      33%{ content: '.'; }
+      66%{ content: '..'; }
+      100%{ content: '...'; }
+    }
+  </style>
+</head>
+<body>
+  <div class="center">
+    <div>
+      <div class="printer" aria-label="Printing your receipt">
+        <div class="slot"></div>
+        <div class="paper"></div>
+      </div>
+      <p style="margin-top:16px;">Generating your ad receipt<span class="loading-dots"></span></p>
+    </div>
+  </div>
+  <script>
+    setTimeout(() => { window.location.href = 'receipt.html'; }, 3600);
+  </script>
+</body>
+</html>

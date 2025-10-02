@@ -1,0 +1,150 @@
+:root{
+  --bg:#000;   /* black background */
+  --text:#fff; /* white text */
+  --tilt:-5deg;
+  --scroll-duration:20s;
+  --ad-radius:20px;
+  --ad-height:400px;
+  --gap:20px;
+  --shadow:2px 4px 8px rgba(0,0,0,0.15);
+  --border:#000;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html,body{ height:100%; }
+body{
+  background: var(--bg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  overflow-y:auto;     /* ✅ allow scrolling */
+  overflow-x:hidden;
+  color: var(--text);
+}
+
+/* Hide scrollbar */
+body::-webkit-scrollbar { display: none; }
+body { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Top bar */
+.topbar{
+  position:fixed;
+  top:0; left:0; right:0;
+  height:70px;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:10px 16px;
+  background:#111;
+  border-bottom:1px solid #333;
+  z-index:10;
+}
+.logo{ font-weight:800; letter-spacing:0.5px; color:var(--text); }
+.timer{ font-variant-numeric: tabular-nums; font-weight:700; color:var(--text); }
+
+/* Feed container */
+.ads-container{
+  position:relative;
+  display:flex; flex-wrap:wrap;
+  gap: var(--gap);
+  padding: 110px 40px 40px;
+  transform: rotate(var(--tilt));
+  animation: scrollDown var(--scroll-duration) linear infinite;
+  z-index:1;
+  pointer-events:auto;
+}
+
+/* Ad cards */
+.ad{
+  position:relative;
+  flex: 1 0 18%;
+  min-width: 140px;
+  height: var(--ad-height);
+  display:flex; flex-direction:column;
+  justify-content:flex-start; align-items:stretch;
+  border: 2px solid var(--border);
+  border-radius: var(--ad-radius);
+  box-shadow: var(--shadow);
+  background: #fff;
+  cursor:pointer;
+  overflow:hidden;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  z-index:2;
+}
+
+.ad:hover{ transform: scale(1.03) rotate(2deg); }
+.ad.clicked{ outline: 3px dashed #ff5a5a; outline-offset:-6px; }
+
+/* Image area */
+.ad img{
+  width:100%; height:90%;
+  object-fit:cover;
+  display:block;
+}
+
+/* Title area */
+.ad .meta{
+  padding:8px 10px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:8px;
+}
+.ad .title{
+  font-size:0.95rem; font-weight:700;
+  line-height:1.2; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  color:#000;
+}
+.ad .open{
+  font-size:0.75rem; border:1px solid #000; padding:2px 6px; border-radius:999px;
+  color:#000;
+  background:#fff;
+}
+
+/* Tiny "Sponsored" badge */
+.badge{
+  position:absolute; top:8px; left:8px;
+  background:rgba(255,255,255,0.85);
+  border:1px solid #000;
+  border-radius:8px; padding:2px 6px;
+  font-size:0.72rem; font-weight:600;
+  color:#000;
+}
+
+/* Pastel edge tint */
+.ad:nth-child(1){ box-shadow: 0 0 0 4px #ffd6d6 inset, var(--shadow); }
+.ad:nth-child(2){ box-shadow: 0 0 0 4px #d6f0ff inset, var(--shadow); }
+.ad:nth-child(3){ box-shadow: 0 0 0 4px #e9ffd6 inset, var(--shadow); }
+.ad:nth-child(4){ box-shadow: 0 0 0 4px #fff2d6 inset, var(--shadow); }
+.ad:nth-child(5){ box-shadow: 0 0 0 4px #e0d6ff inset, var(--shadow); }
+.ad:nth-child(6){ box-shadow: 0 0 0 4px #ffe6d6 inset, var(--shadow); }
+.ad:nth-child(7){ box-shadow: 0 0 0 4px #d6fff5 inset, var(--shadow); }
+.ad:nth-child(8){ box-shadow: 0 0 0 4px #f5d6ff inset, var(--shadow); }
+.ad:nth-child(9){ box-shadow: 0 0 0 4px #fffbd6 inset, var(--shadow); }
+.ad:nth-child(10){ box-shadow: 0 0 0 4px #ffd6f2 inset, var(--shadow); }
+.ad:nth-child(11){ box-shadow: 0 0 0 4px #d6ffe1 inset, var(--shadow); }
+.ad:nth-child(12){ box-shadow: 0 0 0 4px #f0d6ff inset, var(--shadow); }
+.ad:nth-child(13){ box-shadow: 0 0 0 4px #ffeed6 inset, var(--shadow); }
+.ad:nth-child(14){ box-shadow: 0 0 0 4px #d6eaff inset, var(--shadow); }
+.ad:nth-child(15){ box-shadow: 0 0 0 4px #eaffd6 inset, var(--shadow); }
+.ad:nth-child(16){ box-shadow: 0 0 0 4px #ffd6e5 inset, var(--shadow); }
+
+/* Gentle auto-scroll shift */
+@keyframes scrollDown {
+  from { transform: translateY(0) rotate(var(--tilt)); }
+  to   { transform: translateY(-10%) rotate(var(--tilt)); }
+}
+
+/* Loading + Receipt basics */
+.center{
+  min-height:100dvh; display:grid; place-items:center; padding:40px;
+  text-align:center;
+}
+
+.receipt{
+  max-width:720px; width:100%;
+  background:#fff; color:#111; border:1px dashed #222; padding:24px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+.receipt h1{ font-size:1.3rem; margin-bottom:12px; }
+.receipt .line{ display:flex; justify-content:space-between; gap:10px; padding:6px 0; border-bottom:1px dotted #ccc; }
+.receipt .muted{ opacity:.7; font-size:.9em; }
+.receipt .total{ font-weight:800; }
+.receipt .actions{ margin-top:16px; display:flex; gap:12px; flex-wrap:wrap; }
+.receipt button, .receipt a.btn{
+  border:1px solid #000; background:#fff; padding:8px 12px; cursor:pointer; border-radius:8px; text-decoration:none; color:#111;
+}

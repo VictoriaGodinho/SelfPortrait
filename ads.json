@@ -1,0 +1,18 @@
+[
+  { "title": "Sephora", "image": "images/sephora.JPG", "link": "https://www.sephora.com", "viewCost": 0.5 },
+  { "title": "Delta", "image": "images/delta.jpg", "link": "https://www.delta.com", "viewCost": 0.5 },
+  { "title": "IKEA", "image": "images/ikea.jpg", "link": "https://www.ikea.com", "viewCost": 0.5 },
+  { "title": "ASOS", "image": "images/asos.jpg", "link": "https://www.asos.com", "viewCost": 0.5 },
+  { "title": "Sprite", "image": "images/sprite.jpg", "link": "https://www.sprite.com", "viewCost": 0.5 },
+  { "title": "Amazon", "image": "images/amazon.jpg", "link": "https://www.amazon.com", "viewCost": 0.5 },
+  { "title": "Celsius", "image": "images/celsius.jpg", "link": "https://www.celsius.com", "viewCost": 0.5 },
+  { "title": "Apple", "image": "images/apple.jpg", "link": "https://www.apple.com", "viewCost": 0.5 },
+  { "title": "YouTube", "image": "images/yt.jpg", "link": "https://www.youtube.com", "viewCost": 0.5 },
+  { "title": "Walmart", "image": "images/walmart.jpg", "link": "https://www.walmart.com", "viewCost": 0.5 },
+  { "title": "Bailedagringa", "image": "images/baile.jpg", "link": "https://www.instagram.com/bailedagringa", "viewCost": 0.5 },
+  { "title": "Ulta", "image": "images/ulta.jpg", "link": "https://www.ulta.com", "viewCost": 0.5 },
+  { "title": "Meta", "image": "images/meta.jpg", "link": "https://about.meta.com", "viewCost": 0.5 },
+  { "title": "Google", "image": "images/google.jpg", "link": "https://www.google.com", "viewCost": 0.5 },
+  { "title": "Ffern", "image": "images/ffern.jpg", "link": "https://www.ffern.co", "viewCost": 0.5 },
+  { "title": "Nike", "image": "images/nike.jpg", "link": "https://www.nike.com", "viewCost": 0.5 }
+]
